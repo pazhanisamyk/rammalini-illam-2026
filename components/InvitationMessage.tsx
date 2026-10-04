@@ -1,0 +1,94 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { FileDown } from "lucide-react";
+import { LotusOrnament } from "./decorations/LotusOrnament";
+import { KolamPattern } from "./decorations/KolamPattern";
+import { OrnamentalBorder } from "./decorations/OrnamentalBorder";
+
+export const InvitationMessage: React.FC = () => {
+  return (
+    <section
+      id="invitation"
+      className="relative py-12 md:py-16 px-4 bg-[#FFF4DC] overflow-hidden text-center"
+    >
+      <div className="max-w-3xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8 }}
+        >
+          <OrnamentalBorder variant="maroon" className="bg-[#FFFDF9]/95">
+            {/* Top Ornamental Header */}
+            <div className="flex flex-col items-center justify-center mb-4">
+              <LotusOrnament size={32} colorVariant="maroon" />
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#8B1738] font-serif mt-2 tracking-wide">
+                புதுமனை புகுவிழா அழைப்பிதழ்
+              </h2>
+              <p className="text-[11px] sm:text-xs font-medium text-[#B8863B] tracking-widest mt-1 uppercase">
+                GRIHA PRAVESH INVITATION
+              </p>
+            </div>
+
+            {/* Decorative Kolam Divider */}
+            <KolamPattern variant="divider" size={26} className="my-2.5" />
+
+            {/* Core Traditional Tamil Invitation Wording */}
+            <div className="space-y-4 text-[#70112C] font-serif px-1 sm:px-4">
+              <p className="text-sm sm:text-base leading-relaxed font-semibold text-[#8B1738]">
+                அன்புடையீர் வணக்கம்,
+              </p>
+
+              <p className="text-xs sm:text-sm md:text-base leading-relaxed text-[#6B351C]">
+                இறைவனின் திருவருளாலும், பெரியோர்களின் நல்லாசிகளாலும்
+                எங்கள் புதிய இல்லமான <span className="font-bold text-[#1F5A36] text-sm sm:text-base md:text-lg">“ராம்மாலினி வீடு”</span> -ன்
+                புதுமனை புகுவிழா நன்னாளன்று இனிதே நடைபெற உள்ளது.
+              </p>
+
+              <div className="py-3 px-4 my-3 rounded-xl bg-[#FFF4DC]/70 border border-[#B8863B]/40 shadow-sm">
+                <p className="text-xs sm:text-sm md:text-base font-medium leading-relaxed sm:leading-loose text-[#8B1738]">
+                  இந்நிகழ்விற்கு தாங்கள் தங்கள் சுற்றமும் நட்பும் சூழ வருகை தந்து,
+                  எங்கள் இல்ல விழாவை சிறப்பித்து,
+                  எங்களை வாழ்த்தி ஆசீர்வதிக்குமாறு அன்போடு வேண்டுகிறோம்.
+                </p>
+              </div>
+
+              {/* Auspicious Blessing Footnote */}
+              <div className="pt-1 text-xs text-[#7D4F13] italic flex items-center justify-center gap-2">
+                <span>🌸</span>
+                <span>தங்கள் வருகை எங்கள் இல்லத்திற்கு மங்களம் சேர்க்கும்</span>
+                <span>🌸</span>
+              </div>
+
+              {/* Download PDF Invitation CTA */}
+              <div className="pt-3 pb-1 flex justify-center">
+                <a
+                  href="/pdf/invitation.pdf"
+                  download="Rammalini_Housewarming_Invitation.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#8B1738] to-[#A51E4B] text-[#FFFDF9] font-bold text-xs sm:text-sm shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 group"
+                  aria-label="புதுமனை புகுவிழா அழைப்பிதழ் PDF பதிவிறக்கம்"
+                >
+                  <FileDown className="w-4 h-4 text-[#D4AF37] group-hover:translate-y-0.5 transition-transform" />
+                  <span>அழைப்பிதழைப் பதிவிறக்குக (Download PDF)</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Bottom Flower Accents */}
+            <div className="mt-6 pt-3.5 border-t border-[#B8863B]/30 flex items-center justify-center gap-4 sm:gap-6">
+              <LotusOrnament size={22} colorVariant="gold" />
+              <span className="text-[11px] sm:text-xs font-serif text-[#B8863B] font-semibold tracking-wider">
+                மங்களம் பொங்குக • நலம் சூழ்க
+              </span>
+              <LotusOrnament size={22} colorVariant="gold" />
+            </div>
+          </OrnamentalBorder>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
