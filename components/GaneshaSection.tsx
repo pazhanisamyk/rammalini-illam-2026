@@ -15,25 +15,25 @@ export const GaneshaSection: React.FC = () => {
       className="relative py-12 md:py-16 px-4 bg-[#FFF9EE] overflow-hidden text-center"
     >
       {/* Background Subtle Kolam Pattern */}
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none flex items-center justify-center">
-        <KolamPattern variant="mandala" size={500} />
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none flex items-center justify-center">
+        <KolamPattern variant="mandala" size={520} />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Auspicious Title Mantra */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-6"
         >
           <div className="flex items-center justify-center gap-2 mb-1.5">
-            <LotusOrnament size={24} colorVariant="gold" />
+            <LotusOrnament size={26} colorVariant="gold" />
             <span className="text-xs font-semibold tracking-widest text-[#B8863B] uppercase">
               மங்கள வாழ்த்து
             </span>
-            <LotusOrnament size={24} colorVariant="gold" />
+            <LotusOrnament size={26} colorVariant="gold" />
           </div>
 
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#8B1738] font-serif">
@@ -46,11 +46,12 @@ export const GaneshaSection: React.FC = () => {
 
         {/* Traditional Pooja Shrine Visual Frame */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.94, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.9 }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#B8863B]/60 p-2 sm:p-3 bg-gradient-to-b from-[#FFF4DC] to-[#FFFDF9] max-w-2xl mx-auto"
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ y: -3, transition: { duration: 0.35 } }}
+          className="relative rounded-3xl overflow-hidden shadow-shrine-glow border-4 border-[#B8863B]/70 p-2 sm:p-3 bg-gradient-to-b from-[#FFF4DC] to-[#FFFDF9] max-w-2xl mx-auto transition-all duration-500 group"
         >
           {/* Inner Image Container */}
           <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-inner">
@@ -59,7 +60,7 @@ export const GaneshaSection: React.FC = () => {
               alt="ஸ்ரீ விநாயகர் பூஜை பீடம் மற்றும் தீப அலங்காரம்"
               fill
               sizes="(max-width: 768px) 100vw, 700px"
-              className="object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
+              className="object-cover object-center transform group-hover:scale-104 transition-transform duration-700 ease-out"
             />
             {/* Gentle Warm Light Glow Vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#3D2206]/60 via-transparent to-transparent pointer-events-none" />
@@ -67,29 +68,48 @@ export const GaneshaSection: React.FC = () => {
 
           {/* Shrine Bottom Plate */}
           <div className="pt-2.5 pb-1 px-3 flex items-center justify-between text-[8px] sm:text-[10px] md:text-[12px] text-[#8B1738] font-medium">
-            <div className="flex items-center gap-1">
-              <span className="text-[#D4AF37]">✦</span>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="flex items-center gap-1"
+            >
+              <span className="text-[#D4AF37] animate-sparkle-twinkle">✦</span>
               <span>மங்கல தீபம்</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#B8863B]" />
-              <span className="font-serif">ஓம் கணபதயே நமஹ</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#B8863B]" />
-            </div>
-            <div className="flex items-center gap-1">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="flex items-center gap-1.5"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B8863B] animate-pulse" />
+              <span className="font-serif font-bold text-[#8B1738]">ஓம் கணபதயே நமஹ</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B8863B] animate-pulse" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="flex items-center gap-1"
+            >
               <span>மலர் மாலை</span>
-              <span className="text-[#D4AF37]">✦</span>
-            </div>
+              <span className="text-[#D4AF37] animate-sparkle-twinkle">✦</span>
+            </motion.div>
           </div>
         </motion.div>
 
         {/* Auspicious Devotional Text */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-6 max-w-2xl mx-auto bg-[#FFFDF9]/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-[#B8863B]/30 shadow-sm"
+          whileHover={{ y: -2, transition: { duration: 0.3 } }}
+          className="mt-6 max-w-2xl mx-auto bg-[#FFFDF9]/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-[#B8863B]/35 shadow-sm hover:shadow-gold-card transition-shadow"
         >
           <KolamPattern variant="divider" size={24} className="mb-2.5" />
 
@@ -99,12 +119,27 @@ export const GaneshaSection: React.FC = () => {
             எல்லோரும் கூடி கொண்டாடுவோம்.&rdquo;
           </p>
 
-          <div className="mt-4 flex items-center justify-center gap-4 text-xs sm:text-sm text-[#6B351C] font-semibold">
-            <span>சாந்தி</span>
+          <div className="mt-4 flex items-center justify-center gap-3 sm:gap-5 text-[10px] sm:text-[12px] md:text-[14px] text-[#6B351C] font-semibold">
+            <motion.span
+              whileHover={{ scale: 1.1, color: "#8B1738" }}
+              className="px-2.5 py-0.5 rounded-full bg-[#FFF4DC] border border-[#B8863B]/30 cursor-default transition-all"
+            >
+              சாந்தி
+            </motion.span>
             <span className="text-[#B8863B]">❈</span>
-            <span>சுபீக்ஷம்</span>
+            <motion.span
+              whileHover={{ scale: 1.1, color: "#8B1738" }}
+              className="px-2.5 py-0.5 rounded-full bg-[#FFF4DC] border border-[#B8863B]/30 cursor-default transition-all"
+            >
+              சுபீக்ஷம்
+            </motion.span>
             <span className="text-[#B8863B]">❈</span>
-            <span>மங்களம்</span>
+            <motion.span
+              whileHover={{ scale: 1.1, color: "#8B1738" }}
+              className="px-2.5 py-0.5 rounded-full bg-[#FFF4DC] border border-[#B8863B]/30 cursor-default transition-all"
+            >
+              மங்களம்
+            </motion.span>
           </div>
         </motion.div>
       </div>

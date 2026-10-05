@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 interface KuthuVilakkuProps {
   className?: string;
@@ -12,14 +15,18 @@ export const KuthuVilakkuIcon: React.FC<KuthuVilakkuProps> = ({
   glow = true,
 }) => {
   return (
-    <svg
+    <motion.svg
       width={size}
       height={size * 2}
       viewBox="0 0 50 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`inline-block ${className}`}
+      className={`inline-block transition-transform duration-300 hover:scale-105 ${className}`}
       aria-label="குத்துவிளக்கு"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
     >
       <defs>
         <linearGradient id="brassGrad" x1="0" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
@@ -34,23 +41,24 @@ export const KuthuVilakkuIcon: React.FC<KuthuVilakkuProps> = ({
           <stop offset="65%" stopColor="#F59E0B" />
           <stop offset="100%" stopColor="#DC2626" />
         </radialGradient>
-        <filter id="flameGlowEffect" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3" result="blur" />
+        <filter id="flameGlowEffect" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="3.5" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
       </defs>
 
-      {/* Flame top */}
-      <g className={glow ? "animate-diya-flicker" : ""}>
+      {/* Flame top with authentic traditional flickering animation */}
+      <g className={glow ? "animate-diya-flame" : ""}>
         {glow && (
           <ellipse
             cx="25"
             cy="14"
-            rx="9"
-            ry="14"
+            rx="10"
+            ry="15"
             fill="#F59E0B"
-            opacity="0.35"
+            opacity="0.4"
             filter="url(#flameGlowEffect)"
+            className="animate-pulse-gold"
           />
         )}
         <path
@@ -65,11 +73,11 @@ export const KuthuVilakkuIcon: React.FC<KuthuVilakkuProps> = ({
         d="M25 23 L27 27 L23 27 Z"
         fill="url(#brassGrad)"
       />
-      
+
       {/* Top Oil Cup with 5 wicks platform */}
       <ellipse cx="25" cy="28" rx="14" ry="4.5" fill="url(#brassGrad)" stroke="#7D4F13" strokeWidth="0.5" />
       <ellipse cx="25" cy="27" rx="10" ry="2.5" fill="#7D4F13" />
-      
+
       {/* Upper Pillar Segment */}
       <path
         d="M23 32 L27 32 L28 48 L22 48 Z"
@@ -107,6 +115,6 @@ export const KuthuVilakkuIcon: React.FC<KuthuVilakkuProps> = ({
       />
       {/* Base Foundation Rim */}
       <rect x="5" y="95" width="40" height="4" rx="1.5" fill="url(#brassGrad)" stroke="#7D4F13" strokeWidth="0.5" />
-    </svg>
+    </motion.svg>
   );
 };

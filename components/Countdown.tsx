@@ -81,27 +81,28 @@ export const Countdown: React.FC = () => {
       className="relative py-12 md:py-16 px-4 bg-[#FFFDF7] overflow-hidden text-center"
     >
       {/* Background Kolam Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-        <KolamPattern variant="mandala" size={550} />
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none">
+        <KolamPattern variant="mandala" size={560} />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8 }}
-          className="relative bg-[#FFFDF9] rounded-3xl p-5 sm:p-8 md:p-10 border-2 border-[#B8863B]/40 shadow-invitation"
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ y: -3, transition: { duration: 0.35 } }}
+          className="relative bg-[#FFFDF9] rounded-3xl p-5 sm:p-8 md:p-10 border-2 border-[#B8863B]/45 shadow-invitation hover:shadow-gold-card-hover transition-all duration-500"
         >
           {/* Inner Border Frame */}
           <div className="absolute inset-2 sm:inset-3 rounded-2xl border border-[#B8863B]/30 pointer-events-none" />
 
           {/* Top Lotus Motif */}
           <div className="flex justify-center mb-2">
-            <LotusOrnament size={28} colorVariant="gold" />
+            <LotusOrnament size={30} colorVariant="gold" />
           </div>
 
-          <span className="text-xs font-semibold tracking-widest text-[#B8863B] uppercase">
+          <span className="text-xs font-semibold tracking-widest text-[#B8863B] uppercase font-serif">
             நிகழ்விற்கான நேரக் கணக்கீடு
           </span>
 
@@ -128,14 +129,18 @@ export const Countdown: React.FC = () => {
               {timeBlocks.map((block, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.04 }}
-                  className="relative p-3.5 sm:p-5 rounded-2xl bg-gradient-to-b from-[#FFFDF9] to-[#FFF4DC] border-2 border-[#B8863B]/50 shadow-sm flex flex-col items-center justify-center overflow-hidden group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
+                  whileHover={{ y: -4, scale: 1.05 }}
+                  className="relative p-3.5 sm:p-5 rounded-2xl bg-gradient-to-b from-[#FFFDF9] to-[#FFF4DC] border-2 border-[#B8863B]/50 shadow-xs hover:shadow-gold-card flex flex-col items-center justify-center overflow-hidden group transition-all"
                 >
                   {/* Subtle top bar accent */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8B1738] via-[#B8863B] to-[#8B1738]" />
 
                   {/* Digits Display */}
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#8B1738] font-serif tracking-tight tabular-nums">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#8B1738] font-serif tracking-tight tabular-nums group-hover:scale-105 transition-transform">
                     {String(block.value).padStart(2, "0")}
                   </span>
 
@@ -155,9 +160,9 @@ export const Countdown: React.FC = () => {
 
           {/* Bottom Blessing Line */}
           <div className="flex items-center justify-center gap-2.5 text-xs text-[#7D4F13] font-serif italic mt-3">
-            <KuthuVilakkuIcon size={16} glow={false} />
+            <KuthuVilakkuIcon size={18} glow={true} />
             <span>எங்கள் இல்லத் தொடக்கத்திற்கு தங்கள் வருகையே பேரானந்தம்</span>
-            <KuthuVilakkuIcon size={16} glow={false} />
+            <KuthuVilakkuIcon size={18} glow={true} />
           </div>
         </motion.div>
       </div>

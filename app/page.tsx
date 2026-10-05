@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { DivineIntro, IntroState } from "@/components/DivineIntro";
 import { Hero } from "@/components/Hero";
 import { GaneshaSection } from "@/components/GaneshaSection";
 import { InvitationMessage } from "@/components/InvitationMessage";
@@ -15,46 +19,86 @@ import { Footer } from "@/components/Footer";
 import { PetalShower } from "@/components/decorations/PetalShower";
 
 export default function Home() {
+  const [introState, setIntroState] = useState<IntroState>("intro");
+
+  const handlePlay = () => {
+    setIntroState("playing");
+  };
+
+  const handleVideoEnd = () => {
+    setIntroState("revealing");
+    setTimeout(() => {
+      setIntroState("revealed");
+    }, 800);
+  };
+
+  const isWebsiteVisible = introState === "revealing" || introState === "revealed";
+
   return (
     <main className="relative min-h-screen bg-[#FFFDF7] text-[#70112C] selection:bg-[#8B1738] selection:text-[#FFFDF7] overflow-x-hidden">
-      {/* Floating Ambient Controls & Effects */}
-      <PetalShower />
-      <MusicToggle />
-      <FloatingNav />
+      {/* 1. Cinematic Divine Video Intro Overlay */}
+      <DivineIntro
+        introState={introState}
+        onPlay={handlePlay}
+        onVideoEnd={handleVideoEnd}
+      />
 
-      {/* Sequential Storytelling Experience */}
-      {/* 1. Hero / Entrance Doorway */}
-      <Hero />
+      {/* 2. Floating Ambient Controls & Effects (Active when website is revealed) */}
+      {isWebsiteVisible && (
+        <>
+          <PetalShower />
+          <MusicToggle />
+          <FloatingNav />
+        </>
+      )}
 
-      {/* 2. Ganesha / Auspicious Pooja Shrine */}
-      <GaneshaSection />
+      {/* 3. Main Website Invitation Experience - Preloaded underneath overlay for instant buttery smooth cross-fade */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={
+          isWebsiteVisible
+            ? {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
+              }
+            : { opacity: 0, y: 15 }
+        }
+        className="relative z-10"
+      >
+        {/* 1. Hero / Entrance Doorway */}
+        <Hero />
 
-      {/* 3. Invitation Message */}
-      <InvitationMessage />
+        {/* 2. Ganesha / Auspicious Pooja Shrine */}
+        <GaneshaSection />
 
-      {/* 4. Family / Hosts */}
-      <FamilySection />
+        {/* 3. Invitation Message */}
+        <InvitationMessage />
 
-      {/* 5. House Name Highlight */}
-      <HouseName />
+        {/* 4. Family / Hosts */}
+        <FamilySection />
 
-      {/* 6. Event Details */}
-      <EventDetails />
+        {/* 5. House Name Highlight */}
+        <HouseName />
 
-      {/* 7. Location & Map Directions */}
-      <LocationSection />
+        {/* 6. Event Details */}
+        <EventDetails />
 
-      {/* 8. Festive Welcome Hall & Poem */}
-      <WelcomeSection />
+        {/* 7. Location & Map Directions */}
+        <LocationSection />
 
-      {/* 9. Countdown Timer */}
-      <Countdown />
+        {/* 8. Festive Welcome Hall & Poem */}
+        <WelcomeSection />
 
-      {/* 10. RSVP & Interactive Blessings */}
-      <RSVP />
+        {/* 9. Countdown Timer */}
+        <Countdown />
 
-      {/* 11. Footer & Closing Blessing */}
-      <Footer />
+        {/* 10. RSVP & Interactive Blessings */}
+        <RSVP />
+
+        {/* 11. Footer & Closing Blessing */}
+        <Footer />
+      </motion.div>
     </main>
   );
 }

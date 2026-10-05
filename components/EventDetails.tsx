@@ -7,7 +7,9 @@ import { LotusOrnament } from "./decorations/LotusOrnament";
 import { KolamPattern } from "./decorations/KolamPattern";
 import { OrnamentalBorder } from "./decorations/OrnamentalBorder";
 
-export const EventDetails: React.FC = () => {
+interface EventDetailsProps {}
+
+export const EventDetails: React.FC<EventDetailsProps> = () => {
   const [calendarAdded, setCalendarAdded] = useState(false);
 
   // Generate Google Calendar Link
@@ -61,20 +63,21 @@ export const EventDetails: React.FC = () => {
     >
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ y: -3, transition: { duration: 0.35 } }}
         >
           <OrnamentalBorder variant="gold" className="bg-[#FFFDF9]">
             {/* Section Header */}
             <div className="text-center mb-6">
               <div className="flex items-center justify-center gap-2 mb-1.5">
-                <LotusOrnament size={26} colorVariant="gold" />
+                <LotusOrnament size={28} colorVariant="gold" />
                 <span className="text-xs font-semibold tracking-widest text-[#B8863B] uppercase">
                   விழா நேரம் & இடம்
                 </span>
-                <LotusOrnament size={26} colorVariant="gold" />
+                <LotusOrnament size={28} colorVariant="gold" />
               </div>
 
               <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#8B1738] font-serif">
@@ -91,11 +94,15 @@ export const EventDetails: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6">
               {/* Date Card */}
               <motion.div
-                whileHover={{ y: -4 }}
-                className="flex flex-col items-center text-center p-3.5 sm:p-4 rounded-2xl bg-gradient-to-b from-[#FFF4DC] to-[#FFFDF9] border border-[#B8863B]/40 shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#FFF4DC] to-[#FFFDF9] border border-[#B8863B]/40 shadow-xs hover:shadow-gold-card transition-all group"
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#8B1738]/10 border border-[#8B1738]/30 flex items-center justify-center text-[#8B1738] mb-2">
-                  <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#8B1738]/10 border border-[#8B1738]/30 flex items-center justify-center text-[#8B1738] mb-2 group-hover:scale-110 transition-transform">
+                  <Calendar className="w-4 h-4" />
                 </div>
                 <h3 className="text-[11px] font-semibold tracking-wider text-[#B8863B] uppercase mb-0.5">
                   திருநாள்
@@ -113,11 +120,15 @@ export const EventDetails: React.FC = () => {
 
               {/* Time Card */}
               <motion.div
-                whileHover={{ y: -4 }}
-                className="flex flex-col items-center text-center p-3.5 sm:p-4 rounded-2xl bg-gradient-to-b from-[#FFF4DC] to-[#FFFDF9] border border-[#B8863B]/40 shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#FFF4DC] to-[#FFFDF9] border border-[#B8863B]/40 shadow-xs hover:shadow-gold-card transition-all group"
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1F5A36]/10 border border-[#1F5A36]/30 flex items-center justify-center text-[#1F5A36] mb-2">
-                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#1F5A36]/10 border border-[#1F5A36]/30 flex items-center justify-center text-[#1F5A36] mb-2 group-hover:scale-110 transition-transform">
+                  <Clock className="w-4 h-4" />
                 </div>
                 <h3 className="text-[11px] font-semibold tracking-wider text-[#B8863B] uppercase mb-0.5">
                   சுப முகூர்த்த நேரம்
@@ -135,11 +146,15 @@ export const EventDetails: React.FC = () => {
 
               {/* Venue Card */}
               <motion.div
-                whileHover={{ y: -4 }}
-                className="flex flex-col items-center text-center p-3.5 sm:p-4 rounded-2xl bg-gradient-to-b from-[#FFF4DC] to-[#FFFDF9] border border-[#B8863B]/40 shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#FFF4DC] to-[#FFFDF9] border border-[#B8863B]/40 shadow-xs hover:shadow-gold-card transition-all group"
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#B8863B]/10 border border-[#B8863B]/30 flex items-center justify-center text-[#B8863B] mb-2">
-                  <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#B8863B]/10 border border-[#B8863B]/30 flex items-center justify-center text-[#B8863B] mb-2 group-hover:scale-110 transition-transform">
+                  <MapPin className="w-4 h-4" />
                 </div>
                 <h3 className="text-[11px] font-semibold tracking-wider text-[#B8863B] uppercase mb-0.5">
                   நிகழ்விடம்
@@ -158,25 +173,31 @@ export const EventDetails: React.FC = () => {
             </div>
 
             {/* Action: Add to Calendar & Download Invitation */}
-            <div className="flex flex-wrap items-center justify-center gap-2.5 pt-3 border-t border-[#B8863B]/30">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex flex-wrap items-center justify-center gap-2.5 pt-3 border-t border-[#B8863B]/30"
+            >
               <a
                 href={getGoogleCalendarUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#8B1738] text-[#FFFDF9] font-medium text-xs shadow-md hover:bg-[#70112C] transition-all hover:scale-105"
+                className="shimmer-badge inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#8B1738] text-[#FFFDF9] font-medium text-xs shadow-md hover:bg-[#70112C] transition-all hover:scale-105 active:scale-95 group"
               >
-                <CalendarPlus className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <CalendarPlus className="w-3.5 h-3.5 text-[#D4AF37] group-hover:scale-110 transition-transform" />
                 <span>Google Calendar</span>
               </a>
 
               <button
                 onClick={downloadIcs}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#FFFDF9] text-[#8B1738] border border-[#8B1738]/40 font-medium text-xs shadow-xs hover:bg-[#FFF4DC] transition-all hover:scale-105"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FFFDF9] text-[#8B1738] border border-[#8B1738]/40 font-medium text-xs shadow-xs hover:bg-[#FFF4DC] hover:border-[#8B1738]/70 transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 {calendarAdded ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-green-600" />
-                    <span className="text-green-700">பதிவிறக்கப்பட்டது!</span>
+                    <Check className="w-3.5 h-3.5 text-green-600 animate-bounce" />
+                    <span className="text-green-700 font-bold">பதிவிறக்கப்பட்டது!</span>
                   </>
                 ) : (
                   <>
@@ -191,13 +212,13 @@ export const EventDetails: React.FC = () => {
                 download="Rammalini_Housewarming_Invitation.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#1F5A36] text-[#FFFDF9] font-medium text-xs shadow-md hover:bg-[#164228] transition-all hover:scale-105"
+                className="shimmer-badge inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#1F5A36] text-[#FFFDF9] font-medium text-xs shadow-md hover:bg-[#164228] transition-all hover:scale-105 active:scale-95 group"
                 aria-label="அழைப்பிதழ் PDF பதிவிறக்கம்"
               >
-                <FileDown className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <FileDown className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-y-0.5 transition-transform" />
                 <span>அழைப்பிதழ் PDF</span>
               </a>
-            </div>
+            </motion.div>
           </OrnamentalBorder>
         </motion.div>
       </div>

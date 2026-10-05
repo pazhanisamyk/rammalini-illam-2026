@@ -1,15 +1,20 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 interface LotusOrnamentProps {
   className?: string;
   size?: number;
   colorVariant?: "pink" | "gold" | "maroon";
+  animated?: boolean;
 }
 
 export const LotusOrnament: React.FC<LotusOrnamentProps> = ({
   className = "",
   size = 48,
   colorVariant = "gold",
+  animated = true,
 }) => {
   const getGradients = () => {
     switch (colorVariant) {
@@ -41,14 +46,18 @@ export const LotusOrnament: React.FC<LotusOrnamentProps> = ({
   const g = getGradients();
 
   return (
-    <svg
+    <motion.svg
       width={size}
       height={size * 0.85}
       viewBox="0 0 100 85"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`inline-block transition-transform duration-300 hover:scale-105 ${className}`}
+      className={`inline-block transition-transform duration-300 hover:scale-110 ${animated ? "animate-float-gentle" : ""} ${className}`}
       aria-hidden="true"
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <defs>
         <linearGradient id={`lotusGrad-${colorVariant}`} x1="50" y1="10" x2="50" y2="80" gradientUnits="userSpaceOnUse">
@@ -116,6 +125,6 @@ export const LotusOrnament: React.FC<LotusOrnamentProps> = ({
         fill="#1F5A36"
         opacity="0.85"
       />
-    </svg>
+    </motion.svg>
   );
 };

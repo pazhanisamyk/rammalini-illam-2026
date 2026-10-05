@@ -8,7 +8,9 @@ import { KolamPattern } from "./decorations/KolamPattern";
 import { KuthuVilakkuIcon } from "./decorations/KuthuVilakkuIcon";
 import { OrnamentalBorder } from "./decorations/OrnamentalBorder";
 
-export const LocationSection: React.FC = () => {
+interface LocationSectionProps { }
+
+export const LocationSection: React.FC<LocationSectionProps> = () => {
   const [copied, setCopied] = React.useState(false);
 
   const fullAddress =
@@ -30,20 +32,21 @@ export const LocationSection: React.FC = () => {
     >
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ y: -3, transition: { duration: 0.35 } }}
         >
           <OrnamentalBorder variant="maroon" className="bg-[#FFFDF9]">
             {/* Section Header */}
             <div className="text-center mb-6">
               <div className="flex items-center justify-center gap-2 mb-1.5">
-                <LotusOrnament size={26} colorVariant="maroon" />
+                <LotusOrnament size={28} colorVariant="maroon" />
                 <span className="text-xs font-semibold tracking-widest text-[#B8863B] uppercase">
                   வழிகாட்டுதல்
                 </span>
-                <LotusOrnament size={26} colorVariant="maroon" />
+                <LotusOrnament size={28} colorVariant="maroon" />
               </div>
 
               <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#8B1738] font-serif">
@@ -59,11 +62,17 @@ export const LocationSection: React.FC = () => {
             {/* Address & Map Container Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               {/* Left Side: Address Details */}
-              <div className="lg:col-span-6 space-y-4 text-left">
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#FFF4DC]/90 to-[#FFFDF9] border border-[#B8863B]/40 shadow-sm relative">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="lg:col-span-6 space-y-4 text-left"
+              >
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#FFF4DC]/90 to-[#FFFDF9] border border-[#B8863B]/40 shadow-xs hover:shadow-gold-card transition-shadow relative">
                   <div className="flex items-start gap-3">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#8B1738] text-[#FFFDF9] flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#8B1738] text-[#FFFDF9] flex items-center justify-center flex-shrink-0 shadow-sm animate-pulse-subtle">
+                      <MapPin className="w-4 h-4" />
                     </div>
                     <div className="space-y-0.5">
                       <h3 className="text-base sm:text-lg font-bold text-[#8B1738] font-serif">
@@ -85,12 +94,12 @@ export const LocationSection: React.FC = () => {
                   <div className="mt-3 pt-2.5 border-t border-[#B8863B]/30 flex justify-end">
                     <button
                       onClick={copyAddress}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8B1738] hover:text-[#70112C] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8B1738] hover:text-[#70112C] transition-colors cursor-pointer"
                     >
                       {copied ? (
                         <>
-                          <Check className="w-3.5 h-3.5 text-green-600" />
-                          <span className="text-green-600">முகவரி நகலெடுக்கப்பட்டது!</span>
+                          <Check className="w-3.5 h-3.5 text-green-600 animate-bounce" />
+                          <span className="text-green-600 font-bold">முகவரி நகலெடுக்கப்பட்டது!</span>
                         </>
                       ) : (
                         <>
@@ -118,25 +127,34 @@ export const LocationSection: React.FC = () => {
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#8B1738] to-[#A51E4B] text-[#FFFDF9] font-bold text-xs sm:text-sm shadow-md hover:shadow-lg hover:scale-102 transition-all duration-300 group"
+                    className="shimmer-badge w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#8B1738] to-[#A51E4B] text-[#FFFDF9] font-bold text-[8px] sm:text-[10px] md:text-[12px] shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 group"
                   >
-                    <Navigation className="w-3.5 h-3.5 text-[#D4AF37] group-hover:rotate-45 transition-transform duration-300" />
+                    <Navigation className="w-4 h-4 text-[#D4AF37] group-hover:rotate-45 transition-transform duration-300" />
                     <span>வழிகாட்டி பெற (Get Directions)</span>
                     <ExternalLink className="w-3 h-3 opacity-80" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Right Side: Map Visual Simulation Frame */}
-              <div className="lg:col-span-6">
-                <div className="relative rounded-2xl overflow-hidden border-2 border-[#B8863B]/50 shadow-md bg-[#E8ECE9] aspect-[4/3] flex flex-col items-center justify-center text-center p-4 group">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="lg:col-span-6"
+              >
+                <div className="relative rounded-2xl overflow-hidden border-2 border-[#B8863B]/50 shadow-md hover:shadow-gold-card-hover bg-[#E8ECE9] aspect-[4/3] flex flex-col items-center justify-center text-center p-4 group transition-all duration-500">
                   {/* Styled Map Graphic Background */}
-                  <div className="absolute inset-0 bg-[radial-gradient(#1F5A36_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+                  <div className="absolute inset-0 bg-[radial-gradient(#1F5A36_1.5px,transparent_1.5px)] [background-size:16px_16px] opacity-20" />
 
-                  {/* Central Pin Motif */}
+                  {/* Central Pin Motif with Radar Waves */}
                   <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#8B1738] text-[#FFFDF9] flex items-center justify-center shadow-diya-glow animate-bounce mb-2">
-                      <MapPin className="w-4 h-4" />
+                    <div className="relative flex items-center justify-center mb-2">
+                      <span className="absolute w-12 h-12 rounded-full bg-[#8B1738]/25 animate-ping" />
+                      <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8B1738] text-[#FFFDF9] flex items-center justify-center shadow-diya-glow">
+                        <MapPin className="w-5 h-5" />
+                      </div>
                     </div>
                     <h4 className="text-base font-bold text-[#8B1738] font-serif">
                       ராம்மாலினி வீடு
@@ -153,7 +171,7 @@ export const LocationSection: React.FC = () => {
                       href={googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-3 px-3.5 py-1.5 rounded-full bg-[#FFFDF9] border border-[#8B1738]/30 text-xs font-bold text-[#8B1738] shadow-xs hover:bg-[#8B1738] hover:text-[#FFFDF9] transition-all"
+                      className="mt-3 px-4 py-1.5 rounded-full bg-[#FFFDF9] border border-[#8B1738]/35 text-xs font-bold text-[#8B1738] shadow-xs hover:bg-[#8B1738] hover:text-[#FFFDF9] hover:shadow-md transition-all hover:scale-105"
                     >
                       Google Maps-ல் பார்க்க ↗
                     </a>
@@ -161,10 +179,10 @@ export const LocationSection: React.FC = () => {
 
                   {/* Corner Lamp Icon */}
                   <div className="absolute bottom-2 right-2 text-[#B8863B]">
-                    <KuthuVilakkuIcon size={18} glow={false} />
+                    <KuthuVilakkuIcon size={20} glow={true} />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </OrnamentalBorder>
         </motion.div>

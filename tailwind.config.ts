@@ -81,28 +81,78 @@ const config: Config = {
         'diya-glow': '0 0 25px 5px rgba(212, 175, 55, 0.45), 0 0 50px 15px rgba(184, 134, 59, 0.25)',
         'maroon-glow': '0 0 20px 2px rgba(139, 23, 56, 0.25)',
         'gold-card': '0 10px 30px -5px rgba(184, 134, 59, 0.15), 0 0 0 1px rgba(184, 134, 59, 0.25)',
+        'gold-card-hover': '0 16px 40px -5px rgba(184, 134, 59, 0.25), 0 0 0 1.5px rgba(212, 175, 55, 0.45)',
         'invitation': '0 20px 50px -10px rgba(107, 53, 28, 0.15), 0 0 0 1px rgba(184, 134, 59, 0.3)',
+        'invitation-hover': '0 25px 60px -10px rgba(107, 53, 28, 0.22), 0 0 0 1.5px rgba(184, 134, 59, 0.45)',
+        'shrine-glow': '0 0 35px 8px rgba(212, 175, 55, 0.3), 0 15px 40px rgba(112, 17, 44, 0.15)',
       },
       animation: {
         'float-slow': 'float 6s ease-in-out infinite',
-        'diya-flicker': 'flicker 3s ease-in-out infinite alternate',
+        'float-gentle': 'floatGentle 4s ease-in-out infinite',
+        'diya-flicker': 'flicker 2.5s ease-in-out infinite alternate',
+        'diya-flame': 'flameDance 1.8s ease-in-out infinite alternate',
         'pulse-subtle': 'pulseSubtle 4s ease-in-out infinite',
-        'spin-slow': 'spin 20s linear infinite',
+        'pulse-gold': 'pulseGold 3s ease-in-out infinite',
+        'spin-slow': 'spin 25s linear infinite',
+        'spin-reverse-slow': 'spinReverse 30s linear infinite',
+        'toranam-sway-left': 'toranamSwayLeft 3.5s ease-in-out infinite alternate',
+        'toranam-sway-right': 'toranamSwayRight 4s ease-in-out infinite alternate',
+        'toranam-sway-center': 'toranamSwayCenter 3s ease-in-out infinite alternate',
+        'shimmer-slide': 'shimmerSlide 3s linear infinite',
+        'sparkle-twinkle': 'sparkleTwinkle 2s ease-in-out infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-8px)' },
         },
+        floatGentle: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-5px) rotate(1.5deg)' },
+        },
         flicker: {
           '0%, 100%': { opacity: '0.9', transform: 'scale(1)' },
-          '50%': { opacity: '1', transform: 'scale(1.08)' },
-          '75%': { opacity: '0.85', transform: 'scale(0.97)' },
+          '25%': { opacity: '0.95', transform: 'scale(1.04) translateY(-0.5px)' },
+          '50%': { opacity: '1', transform: 'scale(1.08) translateY(-1px)' },
+          '75%': { opacity: '0.85', transform: 'scale(0.97) translateY(0.5px)' },
+        },
+        flameDance: {
+          '0%, 100%': { transform: 'scaleY(1) skewX(0deg)' },
+          '33%': { transform: 'scaleY(1.06) skewX(-1.5deg)' },
+          '66%': { transform: 'scaleY(0.96) skewX(1.5deg)' },
         },
         pulseSubtle: {
           '0%, 100%': { opacity: '1', transform: 'scale(1)' },
           '50%': { opacity: '0.92', transform: 'scale(1.02)' },
-        }
+        },
+        pulseGold: {
+          '0%, 100%': { opacity: '0.85', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.05)', filter: 'drop-shadow(0 0 10px rgba(212, 175, 55, 0.6))' },
+        },
+        spinReverse: {
+          'from': { transform: 'rotate(360deg)' },
+          'to': { transform: 'rotate(0deg)' },
+        },
+        toranamSwayLeft: {
+          '0%': { transform: 'rotate(-1.8deg) translateY(0px)', transformOrigin: 'top center' },
+          '100%': { transform: 'rotate(1.8deg) translateY(-1px)', transformOrigin: 'top center' },
+        },
+        toranamSwayRight: {
+          '0%': { transform: 'rotate(1.5deg) translateY(0px)', transformOrigin: 'top center' },
+          '100%': { transform: 'rotate(-1.5deg) translateY(-1px)', transformOrigin: 'top center' },
+        },
+        toranamSwayCenter: {
+          '0%': { transform: 'scaleY(1) translateY(0px)' },
+          '100%': { transform: 'scaleY(0.98) translateY(-1.5px)' },
+        },
+        shimmerSlide: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        sparkleTwinkle: {
+          '0%, 100%': { opacity: '0.3', transform: 'scale(0.8) rotate(0deg)' },
+          '50%': { opacity: '1', transform: 'scale(1.2) rotate(45deg)' },
+        },
       }
     },
   },

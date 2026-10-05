@@ -14,15 +14,15 @@ export const OrnamentalBorder: React.FC<OrnamentalBorderProps> = ({
   showCorners = true,
 }) => {
   const borderColors = {
-    gold: "border-[#B8863B]/40 bg-[#FFFDF9]",
-    maroon: "border-[#8B1738]/40 bg-[#FFFDF9]",
-    temple: "border-[#6B351C]/40 bg-[#FFF9EE]",
+    gold: "border-[#B8863B]/40 bg-[#FFFDF9] hover:border-[#B8863B]/70 hover:shadow-gold-card-hover",
+    maroon: "border-[#8B1738]/40 bg-[#FFFDF9] hover:border-[#8B1738]/70 hover:shadow-invitation-hover",
+    temple: "border-[#6B351C]/40 bg-[#FFF9EE] hover:border-[#6B351C]/70 hover:shadow-gold-card-hover",
   };
 
   return (
-    <div className={`relative p-4 sm:p-6 md:p-8 rounded-2xl border-2 ${borderColors[variant]} shadow-invitation transition-all duration-300 hover:shadow-xl ${className}`}>
+    <div className={`relative p-4 sm:p-6 md:p-8 rounded-2xl border-2 ${borderColors[variant]} shadow-invitation transition-all duration-500 ${className}`}>
       {/* Inner Decorative Double Line */}
-      <div className="absolute inset-1.5 sm:inset-2 md:inset-2.5 border border-[#B8863B]/30 rounded-xl pointer-events-none" />
+      <div className="absolute inset-1.5 sm:inset-2 md:inset-2.5 border border-[#B8863B]/30 rounded-xl pointer-events-none transition-colors duration-300" />
 
       {/* 4 Corner Traditional Filigrees */}
       {showCorners && (
