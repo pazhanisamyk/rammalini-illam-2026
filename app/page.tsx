@@ -21,11 +21,35 @@ import { PetalShower } from "@/components/decorations/PetalShower";
 export default function Home() {
   const [introState, setIntroState] = useState<IntroState>("intro");
 
+  // Prevent background scrolling while intro video is active
+  React.useEffect(() => {
+    if (introState !== "revealed") {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.height = "100vh";
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.height = "";
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.height = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.height = "";
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.height = "";
+    };
+  }, [introState]);
+
   const handlePlay = () => {
+    window.scrollTo(0, 0);
     setIntroState("playing");
   };
 
   const handleVideoEnd = () => {
+    window.scrollTo(0, 0);
     setIntroState("revealing");
     setTimeout(() => {
       setIntroState("revealed");
@@ -52,7 +76,7 @@ export default function Home() {
         </>
       )}
 
-      {/* 3. Main Website Invitation Experience - Preloaded underneath overlay for instant buttery smooth cross-fade */}
+      {/* 3. Main Website Invitation Experience - Preloaded and clamped to top during intro to prevent scrolling */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={
@@ -64,7 +88,11 @@ export default function Home() {
               }
             : { opacity: 0, y: 15 }
         }
-        className="relative z-10"
+        className={
+          isWebsiteVisible
+            ? "relative z-10"
+            : "fixed top-0 left-0 w-full max-h-screen overflow-hidden pointer-events-none z-0"
+        }
       >
         {/* 1. Hero / Entrance Doorway */}
         <Hero />

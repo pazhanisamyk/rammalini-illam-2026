@@ -63,7 +63,7 @@ export const DivineIntro: React.FC<DivineIntroProps> = ({
             duration: 0.8,
             ease: [0.25, 0.1, 0.25, 1],
           }}
-          className={`fixed inset-0 z-50 w-screen h-screen overflow-hidden bg-black text-[#FFFDF9] select-none ${introState === "revealing" ? "pointer-events-none" : ""
+          className={`fixed inset-0 z-50 w-screen h-screen overflow-hidden overscroll-none touch-none bg-black text-[#FFFDF9] select-none ${introState === "revealing" ? "pointer-events-none" : ""
             }`}
         >
           {/* 1. Full-Screen Cinematic Video */}
