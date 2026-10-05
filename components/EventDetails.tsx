@@ -172,6 +172,128 @@ export const EventDetails: React.FC<EventDetailsProps> = () => {
               </motion.div>
             </div>
 
+            {/* Visual Ceremony Highlights Cards */}
+            <div className="mt-8 mb-6 pt-6 border-t border-[#B8863B]/30">
+              <div className="text-center mb-5">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-widest text-[#B8863B] uppercase font-serif">
+                  மங்கள சடங்குகள் & விருந்து
+                </span>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#8B1738] font-serif mt-0.5">
+                  விழா நிகழ்வுகள்
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {/* 1. Ganapathi Homam */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-2xl overflow-hidden bg-[#FFF4DC]/80 border border-[#B8863B]/40 shadow-sm hover:shadow-md transition-all group flex flex-col"
+                >
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/10">
+                    <img
+                      src="/images/ganapathi_homam_ceremony.jpg"
+                      alt="கணபதி ஹோமம் & வாஸ்து பூஜை"
+                      className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-[#8B1738]/90 text-[#FFFDF9] text-[9px] sm:text-[10px] font-bold font-serif shadow-xs">
+                      1. அதிகாலை வேளை
+                    </span>
+                  </div>
+                  <div className="p-3 text-center flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-[#8B1738] font-serif">
+                        கணபதி ஹோமம் & வாஸ்து பூஜை
+                      </h4>
+                      <p className="text-[10px] sm:text-[11px] text-[#7D4F13] font-serif mt-0.5 leading-snug">
+                        இறை அருளும் அமைதியும் இல்லத்தில் குடியேற மங்கள ஹோமங்கள்
+                      </p>
+                    </div>
+                    <span className="mt-2 text-[9px] sm:text-[10px] font-semibold text-[#1F5A36] bg-[#1F5A36]/10 px-2 py-0.5 rounded-full inline-block">
+                      அதிகாலை 4:00 - 5:00 AM
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* 2. Paal Kaichuthal */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-2xl overflow-hidden bg-[#FFF4DC]/80 border border-[#B8863B]/40 shadow-sm hover:shadow-md transition-all group flex flex-col"
+                >
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/10">
+                    <img
+                      src="/images/paal_kaichuthal_ceremony.jpg"
+                      alt="கிரகப்பிரவேசம் & பால் காய்ச்சுதல்"
+                      className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-[#1F5A36]/90 text-[#FFFDF9] text-[9px] sm:text-[10px] font-bold font-serif shadow-xs">
+                      2. சுப முகூர்த்தம்
+                    </span>
+                  </div>
+                  <div className="p-3 text-center flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-[#8B1738] font-serif">
+                        கிரகப்பிரவேசம் & பால் காய்ச்சுதல்
+                      </h4>
+                      <p className="text-[10px] sm:text-[11px] text-[#7D4F13] font-serif mt-0.5 leading-snug">
+                        செல்வமும் வளமும் பொங்கி வழிய மங்களகரமான திருநிகழ்வு
+                      </p>
+                    </div>
+                    <span className="mt-2 text-[9px] sm:text-[10px] font-semibold text-[#8B1738] bg-[#8B1738]/10 px-2 py-0.5 rounded-full inline-block">
+                      சுப முகூர்த்தம் 5:00 - 5:30 AM
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* 3. Mangala Virundhu */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-2xl overflow-hidden bg-[#FFF4DC]/80 border border-[#B8863B]/40 shadow-sm hover:shadow-md transition-all group flex flex-col"
+                >
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/10">
+                    <img
+                      src="/images/mangala_virundhu_feast.jpg"
+                      alt="மங்கள விருந்து உபசரிப்பு"
+                      className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-[#B8863B]/90 text-[#FFFDF9] text-[9px] sm:text-[10px] font-bold font-serif shadow-xs">
+                      3. விருந்தோம்பல்
+                    </span>
+                  </div>
+                  <div className="p-3 text-center flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-[#8B1738] font-serif">
+                        மங்கள விருந்து உபசரிப்பு
+                      </h4>
+                      <p className="text-[10px] sm:text-[11px] text-[#7D4F13] font-serif mt-0.5 leading-snug">
+                        சுவையான அறுசுவை தென்னிந்திய பாரம்பரிய தலைவாழை விருந்து
+                      </p>
+                    </div>
+                    <span className="mt-2 text-[9px] sm:text-[10px] font-semibold text-[#B8863B] bg-[#B8863B]/10 px-2 py-0.5 rounded-full inline-block">
+                      காலை 7:00 AM முதல்
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
             {/* Action: Add to Calendar & Download Invitation */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
