@@ -114,13 +114,6 @@ export const FamilySection: React.FC = () => {
                 >
                   🌼 துருவன்
                 </motion.span>
-                <motion.span
-                  whileHover={{ scale: 1.08, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-3 py-1 rounded-full bg-[#FFF4DC] border border-[#1F5A36]/30 shadow-xs cursor-default transition-all hover:bg-[#FFF9EE] hover:border-[#1F5A36]/60"
-                >
-                  🌺 தூரிகா
-                </motion.span>
               </div>
             </motion.div>
           </OrnamentalBorder>
