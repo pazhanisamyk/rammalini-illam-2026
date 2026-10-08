@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Volume2, VolumeX, Music } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 
 export const MusicToggle: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -49,10 +49,10 @@ export const MusicToggle: React.FC = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
-      className="fixed top-3 right-3 z-40"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
+      className="fixed top-3.5 right-3.5 sm:top-4 sm:right-4 z-40 pointer-events-auto"
     >
       <audio
         ref={audioElemRef}
@@ -62,33 +62,27 @@ export const MusicToggle: React.FC = () => {
       />
 
       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.92 }}
         onClick={toggleMusic}
-        className={`group flex items-center gap-1.5 px-3 py-1.5 rounded-full border shadow-sm transition-all duration-300 backdrop-blur-md cursor-pointer ${
+        className={`relative w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border shadow-md transition-all duration-300 backdrop-blur-md cursor-pointer ${
           isPlaying
-            ? "bg-[#8B1738] text-[#FFFDF9] border-[#B8863B] shadow-diya-glow scale-102"
-            : "bg-[#FFFDF9]/95 text-[#8B1738] border-[#B8863B]/50 hover:bg-[#FFF4DC]"
+            ? "bg-[#8B1738] text-[#FFFDF9] border-[#D4AF37] shadow-diya-glow"
+            : "bg-[#FFFDF9]/95 text-[#70112C] border-[#B8863B]/50 hover:bg-[#FFF4DC] hover:border-[#8B1738]/60 shadow-sm"
         }`}
-        aria-label={isPlaying ? "இசையை நிறுத்துக" : "மங்கல இசை ஒலிக்க"}
-        title={isPlaying ? "இசையை நிறுத்துக" : "மங்கல இசை ஒலிக்க"}
+        aria-label={isPlaying ? "இசையை நிறுத்துக (Mute)" : "மங்கல இசை ஒலிக்க (Play)"}
+        title={isPlaying ? "இசையை நிறுத்துக (Mute)" : "மங்கல இசை ஒலிக்க (Play)"}
       >
         {isPlaying ? (
-          <>
-            <div className="flex items-end gap-0.5 h-3.5 px-0.5" aria-hidden="true">
-              <span className="w-0.5 bg-[#D4AF37] rounded-full animate-bounce [animation-delay:0ms] h-3" />
-              <span className="w-0.5 bg-[#FEF08A] rounded-full animate-bounce [animation-delay:150ms] h-1.5" />
-              <span className="w-0.5 bg-[#D4AF37] rounded-full animate-bounce [animation-delay:300ms] h-3.5" />
-              <span className="w-0.5 bg-[#FEF08A] rounded-full animate-bounce [animation-delay:450ms] h-2" />
-            </div>
-            <span className="text-[11px] font-semibold font-serif">இசை இயக்கத்தில்</span>
-            <Volume2 className="w-3.5 h-3.5 text-[#D4AF37] animate-pulse" />
-          </>
+          <div className="relative flex items-center justify-center">
+            <Volume2 className="w-5 h-5 text-[#FEF3C7] animate-pulse" />
+            <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F59E0B]" />
+            </span>
+          </div>
         ) : (
-          <>
-            <VolumeX className="w-3.5 h-3.5 text-[#B8863B] group-hover:text-[#8B1738] transition-colors" />
-            <span className="text-[11px] font-semibold font-serif">இசை (Music)</span>
-          </>
+          <VolumeX className="w-5 h-5 text-[#70112C] group-hover:text-[#8B1738] transition-colors" />
         )}
       </motion.button>
     </motion.div>

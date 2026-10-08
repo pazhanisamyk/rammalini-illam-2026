@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { PageLoader } from "@/components/PageLoader";
 import { DivineIntro, IntroState } from "@/components/DivineIntro";
 import { Hero } from "@/components/Hero";
 import { GaneshaSection } from "@/components/GaneshaSection";
@@ -50,16 +51,16 @@ export default function Home() {
 
   const handleVideoEnd = () => {
     window.scrollTo(0, 0);
-    setIntroState("revealing");
-    setTimeout(() => {
-      setIntroState("revealed");
-    }, 800);
+    setIntroState("revealed");
   };
 
-  const isWebsiteVisible = introState === "revealing" || introState === "revealed";
+  const isWebsiteVisible = introState === "revealed";
 
   return (
     <main className="relative min-h-screen bg-[#FFFDF7] text-[#70112C] selection:bg-[#8B1738] selection:text-[#FFFDF7] overflow-x-hidden">
+      {/* 0. Fullscreen Page Loading Screen during initial load & refresh */}
+      <PageLoader />
+
       {/* 1. Cinematic Divine Video Intro Overlay */}
       <DivineIntro
         introState={introState}
@@ -78,15 +79,14 @@ export default function Home() {
 
       {/* 3. Main Website Invitation Experience - Preloaded and clamped to top during intro to prevent scrolling */}
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0 }}
         animate={
           isWebsiteVisible
             ? {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
-              }
-            : { opacity: 0, y: 15 }
+              opacity: 1,
+              transition: { duration: 0.15 },
+            }
+            : { opacity: 0 }
         }
         className={
           isWebsiteVisible
