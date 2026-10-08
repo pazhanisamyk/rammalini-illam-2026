@@ -17,7 +17,7 @@ export const LocationSection: React.FC<LocationSectionProps> = () => {
     "ராம்மாலினி வீடு, Plot No. 6B, SRS அவென்யூ, இரத்தினமங்கலம், சென்னை - 600127";
 
   // Google Maps Search Query URL
-  const googleMapsUrl = `https://www.google.com/maps/place/SRS+avenue/@12.8486657,80.1265844,14z/data=!4m10!1m2!2m1!1sRathinamangalam,+SRS+Avenue,+Chennai+600127!3m6!1s0x3a5259330166b8b9:0xf0145ede8ab5f8eb!8m2!3d12.8486591!4d80.1503727!15sCitSYXRoaW5hbWFuZ2FsYW0sIFNSUyBBdmVudWUsIENoZW5uYWkgNjAwMTI34AEA!16s%2Fg%2F11ptv9q1wm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D`;
+  const googleMapsUrl = `https://maps.app.goo.gl/5SQjR4trqRAj5nVq5?g_st=aw`;
 
   const copyAddress = () => {
     navigator.clipboard.writeText(fullAddress);
