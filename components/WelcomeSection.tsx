@@ -10,7 +10,7 @@ import { Sparkles } from "lucide-react";
 
 export const WelcomeSection: React.FC = () => {
   const poemLines = [
-    { text: "“ராம்மாலினி இல்லத்தில் மங்களம் பொங்க,", color: "text-[#8B1738] font-bold" },
+    { text: "“ராம்மாலினி வீட்டில் மங்களம் பொங்க,", color: "text-[#8B1738] font-bold" },
     { text: "மனமெங்கும் ஆனந்தம் மலரும் இந்நாளில்,", color: "text-[#1F5A36] font-semibold" },
     { text: "புதுமனை புகுவிழாவில் தங்கள் குடும்பத்துடன் கலந்து கொண்டு,", color: "text-[#6B351C]" },
     { text: "ஆசிகள் வழங்கி மகிழ்விக்குமாறு அன்புடன் வரவேற்கிறோம்.”", color: "text-[#8B1738] font-bold" },
@@ -43,7 +43,7 @@ export const WelcomeSection: React.FC = () => {
           <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden">
             <Image
               src="/images/welcome_festive_hall.jpg"
-              alt="பாரம்பரிய மங்கள இல்லத் திருவிழா கொண்டாட்டம்"
+              alt="பாரம்பரிய மங்கள வீடு திருவிழா கொண்டாட்டம்"
               fill
               sizes="(max-width: 1024px) 100vw, 900px"
               className="object-cover object-center transform group-hover:scale-104 transition-transform duration-700 ease-out"

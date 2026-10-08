@@ -62,7 +62,7 @@ export const InvitationMessage: React.FC = () => {
                 className="text-xs sm:text-sm md:text-base leading-relaxed text-[#6B351C]"
               >
                 இறைவனின் திருவருளாலும், பெரியோர்களின் நல்லாசிகளாலும்
-                எங்கள் புதிய இல்லமான <span className="font-bold text-[#1F5A36] text-sm sm:text-base md:text-lg">“ராம்மாலினி வீடு”</span> -ன்
+                எங்கள் புதிய வீடு <span className="font-bold text-[#1F5A36] text-sm sm:text-base md:text-lg">“ராம்மாலினி வீடு”</span> -ன்
                 புதுமனை புகுவிழா நன்னாளன்று இனிதே நடைபெற உள்ளது.
               </motion.p>
 
@@ -76,7 +76,7 @@ export const InvitationMessage: React.FC = () => {
               >
                 <p className="text-xs sm:text-sm md:text-base font-medium leading-relaxed sm:leading-loose text-[#8B1738]">
                   இந்நிகழ்விற்கு தாங்கள் தங்கள் சுற்றமும் நட்பும் சூழ வருகை தந்து,
-                  எங்கள் இல்ல விழாவை சிறப்பித்து,
+                  எங்கள் வீட்டு விழாவை சிறப்பித்து,
                   எங்களை வாழ்த்தி ஆசீர்வதிக்குமாறு அன்போடு வேண்டுகிறோம்.
                 </p>
               </motion.div>
@@ -90,7 +90,7 @@ export const InvitationMessage: React.FC = () => {
                 className="pt-1 text-xs text-[#7D4F13] italic flex items-center justify-center gap-2"
               >
                 <span className="animate-float-gentle">🌸</span>
-                <span>தங்கள் வருகை எங்கள் இல்லத்திற்கு மங்களம் சேர்க்கும்</span>
+                <span>தங்கள் வருகை எங்கள் வீட்டுக்கு மங்களம் சேர்க்கும்</span>
                 <span className="animate-float-gentle">🌸</span>
               </motion.div>
 

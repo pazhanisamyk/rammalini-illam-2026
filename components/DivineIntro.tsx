@@ -79,10 +79,10 @@ export const DivineIntro: React.FC<DivineIntroProps> = ({
             filter: "blur(8px)",
             transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
           }}
-          className="fixed inset-0 z-50 w-screen h-screen overflow-hidden overscroll-none touch-none bg-black text-[#FFFDF9] select-none flex flex-col items-center justify-between"
+          className="fixed inset-0 z-50 w-full h-[100dvh] overflow-hidden overscroll-none touch-none bg-[#2D050E] text-[#FFFDF9] select-none flex flex-col items-center justify-between"
         >
           {/* 1. Full-Height & Full-Width Edge-to-Edge Video (Desktop & Mobile) */}
-          <div className="absolute inset-0 w-full h-full overflow-hidden bg-black flex items-center justify-center">
+          <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#2D050E] flex items-center justify-center">
             <video
               ref={videoRef}
               key={currentVideoSrc}
@@ -105,10 +105,11 @@ export const DivineIntro: React.FC<DivineIntroProps> = ({
                 transition={{ duration: 0.4 }}
                 className="absolute bottom-0 inset-x-0 pointer-events-none z-20"
               >
+                <div className="absolute inset-x-0 bottom-0 h-44 sm:h-48 bg-gradient-to-t from-[#2D050E] via-[#2D050E]/85 to-transparent" />
                 <BrushStrokeDivider
                   position="bottom"
-                  className="w-full h-48 sm:h-56 md:h-64"
-                  color="#000000"
+                  className="w-full h-64 sm:h-72 md:h-80"
+                  color="#2D050E"
                 />
               </motion.div>
             )}
@@ -117,8 +118,11 @@ export const DivineIntro: React.FC<DivineIntroProps> = ({
           {/* 3. Top Spacing */}
           <div className="relative z-30 w-full pt-4 sm:pt-6 pointer-events-none" />
 
-          {/* 4. Bottom Divine CTA & Controls */}
-          <div className="relative z-30 w-full pb-16 sm:pb-12 md:pb-14 px-4 flex flex-col items-center justify-center pointer-events-auto">
+          {/* 4. Bottom Divine CTA & Controls - Lifted higher for mobile screens & navigation bars */}
+          <div
+            style={{ paddingBottom: "max(6rem, calc(env(safe-area-inset-bottom, 0px) + 3rem))" }}
+            className="relative z-30 w-full pb-24 sm:pb-20 md:pb-16 px-4 flex flex-col items-center justify-center pointer-events-auto"
+          >
             <AnimatePresence mode="wait">
               {introState === "intro" ? (
                 <motion.div
@@ -127,7 +131,7 @@ export const DivineIntro: React.FC<DivineIntroProps> = ({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.5 }}
-                  className="flex flex-col items-center justify-center gap-2 max-w-sm mx-auto text-center"
+                  className="flex flex-col items-center justify-center gap-2.5 max-w-sm mx-auto text-center"
                 >
                   {/* Primary Divine CTA Button */}
                   <motion.button
@@ -143,9 +147,9 @@ export const DivineIntro: React.FC<DivineIntroProps> = ({
                   </motion.button>
 
                   {/* Subtitle Badge */}
-                  <div className="px-3.5 py-0.5 rounded-full bg-black/60 border border-[#D4AF37]/40 backdrop-blur-md">
-                    <p className="text-[10px] sm:text-xs text-[#FEF3C7] font-serif italic tracking-wide">
-                      தெய்வீக ஆசிகளுடன் இல்லத் திருவிழா தொடங்கட்டும் 🙏
+                  <div className="px-4 py-1 rounded-full bg-[#2D050E]/90 border border-[#D4AF37]/50 backdrop-blur-md shadow-lg">
+                    <p className="text-[11px] sm:text-xs text-[#FEF3C7] font-serif tracking-wide">
+                      தெய்வீக ஆசிகளுடன் புதுமனை புகுவிழா தொடங்கட்டும் 🙏
                     </p>
                   </div>
                 </motion.div>
@@ -158,14 +162,14 @@ export const DivineIntro: React.FC<DivineIntroProps> = ({
                   transition={{ duration: 0.3 }}
                   className="flex items-center justify-center"
                 >
-                  {/* Only Skip button during video playback */}
+                  {/* Only Skip button during video playback - Elevated for mobile */}
                   <motion.button
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.9 }}
+                    animate={{ opacity: 0.95 }}
                     whileHover={{ opacity: 1, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleVideoEnded}
-                    className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-black/60 border border-white/30 text-white text-xs sm:text-sm font-serif backdrop-blur-md hover:bg-black/80 shadow-lg cursor-pointer transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#2D050E]/90 border border-[#D4AF37]/50 text-[#FEF3C7] text-xs sm:text-sm font-serif backdrop-blur-md hover:bg-[#450516] hover:border-[#D4AF37] shadow-xl cursor-pointer transition-all"
                   >
                     <FastForward className="w-3.5 h-3.5 text-[#D4AF37]" />
                     <span>Skip / தொடரவும்</span>

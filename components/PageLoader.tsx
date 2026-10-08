@@ -55,7 +55,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({
             filter: "blur(6px)",
             transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
           }}
-          className="fixed inset-0 z-[100] w-screen h-screen overflow-hidden bg-black text-[#FFFDF9] select-none flex flex-col items-center justify-between"
+          className="fixed inset-0 z-[100] w-full h-[100dvh] overflow-hidden bg-black text-[#FFFDF9] select-none flex flex-col items-center justify-between"
         >
           {/* Top Spacer for balanced vertical alignment */}
           <div className="w-full pt-8 sm:pt-12 pointer-events-none" />
@@ -80,12 +80,13 @@ export const PageLoader: React.FC<PageLoaderProps> = ({
             </motion.div>
           </div>
 
-          {/* Bottom Developer Branding Badge */}
+          {/* Bottom Developer Branding Badge - Lifted higher for mobile screens & navigation bars */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="relative z-20 w-full pb-8 sm:pb-10 md:pb-12 px-6 flex flex-col items-center justify-center text-center gap-1.5 max-w-lg mx-auto"
+            style={{ paddingBottom: "max(4.5rem, calc(env(safe-area-inset-bottom, 0px) + 2rem))" }}
+            className="relative z-20 w-full pb-18 sm:pb-16 md:pb-12 px-6 flex flex-col items-center justify-center text-center gap-1.5 max-w-lg mx-auto"
           >
             {/* Powered by line with Portfolio Link */}
             <p className="flex flex-wrap items-center justify-center gap-1.5 text-xs sm:text-sm font-serif text-[#FEF3C7] tracking-wide">

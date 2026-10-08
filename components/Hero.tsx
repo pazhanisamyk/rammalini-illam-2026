@@ -25,10 +25,10 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[100dvh] h-[100dvh] flex flex-col justify-between overflow-hidden bg-black text-[#FFFDF9] select-none"
+      className="relative w-full min-h-[100dvh] h-[100dvh] flex flex-col justify-between overflow-hidden bg-[#2D050E] text-[#FFFDF9] select-none"
     >
       {/* 1. Background Artwork: Edge-to-Edge Image (Mobile & Desktop) */}
-      <div className="absolute inset-0 z-0 overflow-hidden bg-black flex items-center justify-center">
+      <div className="absolute inset-0 z-0 overflow-hidden bg-[#2D050E] flex items-center justify-center">
         {/* Mobile View: mobile-image-intro.jpg */}
         <motion.div
           initial={{ opacity: 0, scale: 1.04 }}
@@ -38,7 +38,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
         >
           <Image
             src="/images/mobile-image-intro.jpg"
-            alt="புதுமனை புகுவிழா - ராம்மாலினி இல்லம்"
+            alt="புதுமனை புகுவிழா - ராம்மாலினி வீடு"
             fill
             priority
             sizes="100vw"
@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
         >
           <Image
             src="/images/desktop-image-intro.png"
-            alt="புதுமனை புகுவிழா - ராம்மாலினி இல்லம்"
+            alt="புதுமனை புகுவிழா - ராம்மாலினி வீடு"
             fill
             priority
             sizes="100vw"
@@ -71,7 +71,8 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
         transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-0 inset-x-0 h-40 sm:h-48 md:h-56 z-10 pointer-events-none"
       >
-        <BrushStrokeDivider position="top" className="w-full h-full" color="#000000" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#2D050E] via-[#2D050E]/60 to-transparent" />
+        <BrushStrokeDivider position="top" className="w-full h-full" color="#2D050E" />
       </motion.div>
 
       {/* 3. Bottom Brush Stroke Overlay (Fades up from bottom of section) */}
@@ -79,9 +80,10 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute bottom-0 inset-x-0 h-56 sm:h-64 md:h-72 z-10 pointer-events-none"
+        className="absolute bottom-0 inset-x-0 h-72 sm:h-80 md:h-96 z-10 pointer-events-none"
       >
-        <BrushStrokeDivider position="bottom" className="w-full h-full" color="#000000" />
+        <div className="absolute inset-x-0 bottom-0 h-44 sm:h-48 md:h-56 bg-gradient-to-t from-[#2D050E] via-[#2D050E]/85 to-transparent" />
+        <BrushStrokeDivider position="bottom" className="w-full h-full" color="#2D050E" />
       </motion.div>
 
       {/* 4. TOP CONTENT: Welcome & House Name (Enters via Fade Down) */}
@@ -104,9 +106,9 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
           initial={{ opacity: 0, scale: 0.94, y: -10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-serif tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] mt-0.5"
+          className="text-2xl sm:text-4xl md:text-5xl font-extrabold font-serif tracking-wide text-white drop-shadow-[0_2px_10px_rgba(45,5,14,0.9)] mt-0.5"
         >
-          ராம்மாலினி இல்லம்
+          ராம்மாலினி வீடு
         </motion.h1>
       </motion.div>
 
@@ -118,7 +120,8 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
         initial={{ opacity: 0, y: 35 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-20 w-full pb-3.5 sm:pb-5 px-4 flex flex-col items-center text-center"
+        style={{ paddingBottom: "max(3rem, calc(env(safe-area-inset-bottom, 0px) + 1.5rem))" }}
+        className="relative z-20 w-full pb-10 sm:pb-8 md:pb-6 px-4 flex flex-col items-center text-center"
       >
         <motion.p
           initial={{ opacity: 0, y: 15 }}

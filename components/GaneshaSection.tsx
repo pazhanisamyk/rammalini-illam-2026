@@ -115,7 +115,7 @@ export const GaneshaSection: React.FC = () => {
 
           <p className="text-sm sm:text-base text-[#70112C] font-serif leading-relaxed italic">
             &ldquo;விநாயகர் திருவருளாலும், குலதெய்வம் ஆசிகளாலும்,
-            எங்கள் புதிய இல்லத்தில் அமைதியும் செல்வமும் மங்களமும் பெருகிட
+            எங்கள் புதிய வீட்டில் அமைதியும் செல்வமும் மங்களமும் பெருகிட
             எல்லோரும் கூடி கொண்டாடுவோம்.&rdquo;
           </p>
 

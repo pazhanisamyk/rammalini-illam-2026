@@ -27,7 +27,7 @@ export const FamilySection: React.FC = () => {
             <div className="flex flex-col items-center justify-center mb-3">
               <LotusOrnament size={30} colorVariant="gold" />
               <p className="text-[10px] sm:text-xs font-semibold tracking-widest text-[#B8863B] uppercase mt-1.5 font-serif">
-                இல்லத்தார்
+                புதுமனைத்தார்
               </p>
               <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#8B1738] font-serif">
                 இங்ஙனம், தங்கள் அன்புடன்
@@ -59,7 +59,7 @@ export const FamilySection: React.FC = () => {
                     <span>மங்கல தாம்பூலம் • குடும்ப ஆசிகள்</span>
                   </span>
                   <span className="bg-black/50 px-2 py-0.5 rounded-full border border-[#D4AF37]/40 backdrop-blur-xs hidden sm:inline-block">
-                    அன்பு இல்லத்திற்கு நல்வரவு
+                    அன்பு புதுமனைக்கு நல்வரவு
                   </span>
                 </div>
               </div>
@@ -83,27 +83,7 @@ export const FamilySection: React.FC = () => {
                   ராமச்சந்திரன் - மாலினி
                 </h3>
                 <p className="text-[10px] sm:text-xs text-[#7D4F13] font-serif mt-0.5">
-                  இல்ல உரிமையாளர்கள்
-                </p>
-              </motion.div>
-
-              {/* Host 2 */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                whileHover={{ y: -3, scale: 1.02 }}
-                className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-b from-[#FFF4DC]/90 to-[#FFFDF9] border border-[#B8863B]/40 shadow-xs hover:shadow-gold-card transition-all group"
-              >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1F5A36]/10 border border-[#1F5A36]/30 flex items-center justify-center mx-auto mb-1.5 text-[#1F5A36] group-hover:scale-110 transition-transform">
-                  <Heart className="w-3.5 h-3.5" />
-                </div>
-                <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#8B1738] font-serif tracking-wide">
-                  ஹரேஷ்குமார் - புனிதவதி
-                </h3>
-                <p className="text-[10px] sm:text-xs text-[#7D4F13] font-serif mt-0.5">
-                  அன்பு குடும்பத்தினர்
+                  புதுமனை உரிமையாளர்கள்
                 </p>
               </motion.div>
             </div>

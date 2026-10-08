@@ -7,7 +7,7 @@ import { LotusOrnament } from "./decorations/LotusOrnament";
 import { KolamPattern } from "./decorations/KolamPattern";
 import { OrnamentalBorder } from "./decorations/OrnamentalBorder";
 
-interface EventDetailsProps {}
+interface EventDetailsProps { }
 
 export const EventDetails: React.FC<EventDetailsProps> = () => {
   const [calendarAdded, setCalendarAdded] = useState(false);
@@ -211,7 +211,7 @@ export const EventDetails: React.FC<EventDetailsProps> = () => {
                         கணபதி ஹோமம் & வாஸ்து பூஜை
                       </h4>
                       <p className="text-[10px] sm:text-[11px] text-[#7D4F13] font-serif mt-0.5 leading-snug">
-                        இறை அருளும் அமைதியும் இல்லத்தில் குடியேற மங்கள ஹோமங்கள்
+                        இறை அருளும் அமைதியும் வீட்டில் குடியேற மங்கள ஹோமங்கள்
                       </p>
                     </div>
                     <span className="mt-2 text-[9px] sm:text-[10px] font-semibold text-[#1F5A36] bg-[#1F5A36]/10 px-2 py-0.5 rounded-full inline-block">

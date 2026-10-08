@@ -64,7 +64,7 @@ export const HouseName: React.FC = () => {
           </motion.div>
 
           <p className="text-[10px] sm:text-xs font-semibold tracking-widest text-[#B8863B] uppercase mb-1 font-serif">
-            புதிய இல்லத்தின் திருப்பெயர்
+            புதுமனை திருப்பெயர்
           </p>
 
           {/* Majestic House Name Typography */}
@@ -98,7 +98,7 @@ export const HouseName: React.FC = () => {
             <div className="relative w-full aspect-[16/9] sm:aspect-[16/9]">
               <Image
                 src="/images/rammalini_illam_house.jpg"
-                alt="ராம்மாலினி இல்ல முகப்பு வாசல்"
+                alt="ராம்மாலினி வீடு முகப்பு வாசல்"
                 fill
                 sizes="(max-width: 768px) 100vw, 800px"
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -110,7 +110,7 @@ export const HouseName: React.FC = () => {
                   <span>மங்கல முகப்பு வாசல்</span>
                 </span>
                 <span className="bg-black/50 px-2.5 py-0.5 rounded-full border border-[#D4AF37]/50 backdrop-blur-xs">
-                  இறை அருளும் அமைதியும் தவழும் இல்லம்
+                  இறை அருளும் அமைதியும் தவழும் வீடு
                 </span>
               </div>
             </div>

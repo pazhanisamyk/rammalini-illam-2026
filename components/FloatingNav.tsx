@@ -11,7 +11,7 @@ export const FloatingNav: React.FC = () => {
   const navItems = [
     { id: "hero", label: "முகப்பு", icon: Home },
     { id: "invitation", label: "அழைப்பிதழ்", icon: Mail },
-    { id: "house-name", label: "இல்லம்", icon: Sparkles },
+    { id: "house-name", label: "வீடு", icon: Sparkles },
     { id: "event-details", label: "நிகழ்வு", icon: Calendar },
     { id: "location", label: "இடம்", icon: MapPin },
     { id: "rsvp", label: "RSVP", icon: UserCheck },
@@ -69,11 +69,10 @@ export const FloatingNav: React.FC = () => {
                   <motion.button
                     whileTap={{ scale: 0.95 }}
                     onClick={() => scrollTo(item.id)}
-                    className={`relative flex items-center justify-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 cursor-pointer ${
-                      isActive
+                    className={`relative flex items-center justify-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 cursor-pointer ${isActive
                         ? "text-[#FFFDF9]"
                         : "text-[#70112C] hover:bg-[#FFF4DC] hover:text-[#8B1738]"
-                    }`}
+                      }`}
                     aria-current={isActive ? "page" : undefined}
                     title={item.label}
                   >

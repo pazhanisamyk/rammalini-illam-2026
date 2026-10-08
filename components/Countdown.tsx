@@ -161,7 +161,7 @@ export const Countdown: React.FC = () => {
           {/* Bottom Blessing Line */}
           <div className="flex items-center justify-center gap-2.5 text-xs text-[#7D4F13] font-serif italic mt-3">
             <KuthuVilakkuIcon size={18} glow={true} />
-            <span>எங்கள் இல்லத் தொடக்கத்திற்கு தங்கள் வருகையே பேரானந்தம்</span>
+            <span>எங்கள் புதுமனை தொடக்கத்திற்கு தங்கள் வருகையே பேரானந்தம்</span>
             <KuthuVilakkuIcon size={18} glow={true} />
           </div>
         </motion.div>
